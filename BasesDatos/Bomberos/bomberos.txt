@@ -1,0 +1,111 @@
+CREATE TABLE reporte (
+  idReporte INT AUTO_INCREMENT PRIMARY KEY,
+  informante varchar(100) not null,
+  zona varchar(100) not null,
+  peligro varchar(100) not null
+);
+
+CREATE TABLE incendio (
+  idIncendio INT AUTO_INCREMENT PRIMARY KEY,
+  fecha date not null,
+  hora varchar(100) not null,
+  area varchar(100) not null,
+  idReporte int not null,
+  FOREIGN KEY (idReporte) REFERENCES reporte(idReporte)
+);
+
+CREATE TABLE bomberos (
+  idBomberos INT AUTO_INCREMENT PRIMARY KEY,
+  nombre varchar(100) not null,
+  telefono varchar(100) not null,
+  idIncendio int not null,
+  FOREIGN KEY (idIncendio) REFERENCES incendio(idIncendio)
+);
+
+CREATE TABLE causa (
+  idCausa INT AUTO_INCREMENT PRIMARY KEY,
+  causaGeneral varchar(100) not null,
+  causaEspecifica varchar(100) not null
+);
+
+CREATE TABLE participacion (
+  idParticipacion INT AUTO_INCREMENT PRIMARY KEY,
+  participacionBomberos varchar(100) not null,
+  idCausa int not null,
+  idBomberos int not null,
+  FOREIGN KEY (idCausa) REFERENCES causa(idCausa),
+  FOREIGN KEY (idBomberos) REFERENCES bomberos(idBomberos)
+);
+
+
+-------------REPORTE-------------
+INSERT INTO reporte (informante, zona, peligro) VALUES ('Juan Mauricio Alvarez', 'Puertochico', 'Peligro de luz');
+INSERT INTO reporte (informante, zona, peligro) VALUES ('Juan Mauricio Alvarez', 'Puertochico', 'Peligro de luz');
+INSERT INTO reporte (informante, zona, peligro) VALUES ('Alejandra Herrera', 'Peñacastillo', 'Riesgo Ordinario');
+INSERT INTO reporte (informante, zona, peligro) VALUES ('Dulce Quiñonez', 'Alisal', 'Peligro de luz');
+INSERT INTO reporte (informante, zona, peligro) VALUES ('Pedro Chavarria', 'Nueva montaña', 'Almacenamiento de alto riesgo');
+
+
+UPDATE reporte SET peligro = 'Riesgo ordinario' WHERE idReporte = 7;
+UPDATE reporte SET informante = 'Juan Mario Alvarez' WHERE idReporte = 4;
+
+DELETE FROM reporte WHERE idReporte = 3;
+
+
+-------------INCENDIO-------------
+INSERT INTO incendio (fecha, hora, area, idReporte) VALUES ('2023-09-15', '12:30', '30537 km', 1);
+INSERT INTO incendio (fecha, hora, area, idReporte) VALUES ('2023-09-16', '14:45', '4000 km', 2);
+INSERT INTO incendio (fecha, hora, area, idReporte) VALUES ('2023-09-17', '16:00', '3000 km', 6);
+INSERT INTO incendio (fecha, hora, area, idReporte) VALUES ('2023-09-18', '18:20', '35050 km', 4);
+INSERT INTO incendio (fecha, hora, area, idReporte) VALUES ('2023-09-19', '20:10', '1230 km', 5);
+
+UPDATE incendio SET area = '40000 km' WHERE idIncendio = 1;
+UPDATE incendio SET hora = '14:34' WHERE idIncendio = 2;
+
+DELETE FROM incendio WHERE idIncendio = 1;
+
+
+-------------EQUIPO-------------
+INSERT INTO bomberos (nombre, telefono, idIncendio) VALUES ('Lo apagadores', '123456789', 6);
+INSERT INTO bomberos (nombre, telefono, idIncendio) VALUES ('El agua que no vez', '987654321', 2);
+INSERT INTO bomberos (nombre, telefono, idIncendio) VALUES ('Pagoneta', '111111111', 3);
+INSERT INTO bomberos (nombre, telefono, idIncendio) VALUES ('El barrio helado', '222222222', 4);
+INSERT INTO bomberos (nombre, telefono, idIncendio) VALUES ('Bororo', '333333333', 5);
+
+UPDATE bomberos SET telefono = '555555555' WHERE idBomberos = 2;
+UPDATE bomberos SET nombre = 'Apaga fuegos' WHERE idBomberos = 3;
+
+DELETE FROM bomberos WHERE idBomberos = 1;
+
+
+-------------CAUSA-------------
+INSERT INTO causa (causaGeneral, causaEspecifica) VALUES ('Actividades humanas', 'Uso indebido de pirotecnia');
+INSERT INTO causa (causaGeneral, causaEspecifica) VALUES ('Actividades humanas', 'Uso indebido de pirotecnia');
+INSERT INTO causa (causaGeneral, causaEspecifica) VALUES ('Condiciones climáticas desfavorables', 'Quema no controlada de vegetación');
+INSERT INTO causa (causaGeneral, causaEspecifica) VALUES ('Condiciones climáticas desfavorables', 'Quema no controlada de vegetación');
+INSERT INTO causa (causaGeneral, causaEspecifica) VALUES ('Actividades humanas', 'Fallo mecánico en maquinaria');
+
+UPDATE causa SET causaEspecifica = 'Accidente de transcito' WHERE idCausa = 1;
+UPDATE causa SET causaGeneral = 'Actividades humanas' WHERE idCausa = 3;
+
+DELETE FROM causa WHERE idCausa = 2;
+
+
+-------------PARTICIPACION-------------
+INSERT INTO participacion (participacionBomberos, idCausa, idBomberos) VALUES ('Mela', 1, 6);
+INSERT INTO participacion (participacionBomberos, idCausa, idBomberos) VALUES ('Mala', 6, 2);
+INSERT INTO participacion (participacionBomberos, idCausa, idBomberos) VALUES ('Se quemo mi casa', 3, 3);
+INSERT INTO participacion (participacionBomberos, idCausa, idBomberos) VALUES ('Inacectable', 4, 4);
+INSERT INTO participacion (participacionBomberos, idCausa, idBomberos) VALUES ('Buena labor', 5, 5);
+
+UPDATE participacion SET participacionBomberos = 'Muy buena labor' WHERE idParticipacion = 1;
+UPDATE participacion SET idCausa = 4 WHERE idParticipacion = 2;
+
+DELETE FROM participacion WHERE idParticipacion = 1;
+
+
+-------------PARTICIPACION-------------
+
+
+
+

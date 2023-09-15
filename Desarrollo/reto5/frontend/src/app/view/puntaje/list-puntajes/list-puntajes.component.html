@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puntajes</title>
+</head>
+
+<body>
+  
+  <div class="container">
+    <h1>Lista de Puntajes</h1>
+    <button (click)="newPuntaje()" >Crear</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Empleado</th>
+          <th>Premio</th>
+          <th>Puntos</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pun of puntajesMelos">
+          <td>{{ pun.idEmpleado }}</td>
+          <td>{{ pun.idPremio }}</td>
+          <td>{{ pun.puntosObtenidos }}</td>
+          <td>{{ pun.fecha }}</td>
+          <td>
+            <button (click)="editPuntaje(pun.idPuntaje)" >Editar</button>
+            <button (click)="deletePuntaje(pun.idPuntaje)" >Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>

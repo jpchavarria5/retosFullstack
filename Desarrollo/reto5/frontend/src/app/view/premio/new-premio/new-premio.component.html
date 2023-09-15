@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <form>
+      <h1>Crear Premio</h1>
+      <div>
+        <label for="documento">Premio:</label>
+        <input type="text" id="documento" name="documento" [(ngModel)]="premio.nombrePremio" required>
+      </div>
+      <div>
+        <label for="nombre">Descripción:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="premio.descripcion" required>
+      </div>
+      <div>
+        <label for="apellido">Valor:</label>
+        <input type="number" id="apellido" name="apellido" [(ngModel)]="premio.valor" required>
+      </div>
+      <button (click)="savePremio()" type="submit">Guardar</button><br><br>
+      <button (click)="back()" type="submit">Atras</button>
+    </form>
+  </div>
+</body>
+</html>

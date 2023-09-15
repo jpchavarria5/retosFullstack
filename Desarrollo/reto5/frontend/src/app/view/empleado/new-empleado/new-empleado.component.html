@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <form>
+      <h1>Crear Empleado</h1>
+      <div>
+        <label for="documento">Documento:</label>
+        <input type="number" id="documento" name="documento" [(ngModel)]="empleado.documento" required>
+      </div>
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="empleado.nombre" required>
+      </div>
+      <div>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" [(ngModel)]="empleado.apellido" required>
+      </div>
+      <div>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" [(ngModel)]="empleado.telefono">
+      </div>
+      <div>
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" [(ngModel)]="empleado.correo">
+      </div>
+      <button (click)="saveEmpleado()" type="submit">Guardar</button><br><br>
+      <button (click)="back()" type="submit">Atras</button>
+    </form>
+    
+  </div>
+</body>
+</html>

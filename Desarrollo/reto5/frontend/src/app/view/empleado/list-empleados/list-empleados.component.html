@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empleados</title>
+</head>
+
+<body>
+  
+  <div class="container">
+    <h1>Lista de Empleados</h1>
+    <button (click)="newEmpleado()" >Crear</button>
+    <table>
+      <thead>
+        <tr>
+          <th>N° de documento</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Teléfono</th>
+          <th>Correo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empleado of empleados">
+          <td>{{ empleado.documento }}</td>
+          <td>{{ empleado.nombre }}</td>
+          <td>{{ empleado.apellido }}</td>
+          <td>{{ empleado.telefono }}</td>
+          <td>{{ empleado.correo }}</td>
+          <td>
+            <button (click)="editEmpleado(empleado.id)" >Editar</button>
+            <button (click)="deleteEmpleado(empleado.id)" >Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>

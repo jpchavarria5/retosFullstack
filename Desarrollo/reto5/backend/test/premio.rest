@@ -1,0 +1,31 @@
+//este rest es para que reconozca esete archivo como un archivo de solicitudes
+
+
+GET http://localhost:9090/premio/
+
+###
+
+POST http://localhost:9090/premio/
+Content-Type: application/json
+
+{
+    "nombrePremio": "La camisa de la seleccion",
+    "descripcion": "Camisa de la seleccion autografiada por todos los jugadores",
+    "valor": "2100000"
+}
+
+### Cuidado con la coma al final del json
+
+PUT http://localhost:9090/premio/3
+Content-Type: application/json
+
+{
+    "idPremio": 3,
+    "nombrePremio": "La camisa de la seleccion polombia",
+    "descripcion": "Camisa de la seleccion autografiada por todos los jugadores xd",
+    "valor": "200000"
+}
+
+###
+
+DELETE http://localhost:9090/premio/4

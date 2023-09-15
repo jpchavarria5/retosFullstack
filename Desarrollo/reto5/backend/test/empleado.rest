@@ -1,0 +1,35 @@
+//este rest es para que reconozca esete archivo como un archivo de solicitudes
+
+
+GET http://localhost:9090/empleado/
+
+###
+
+POST http://localhost:9090/empleado/
+Content-Type: application/json
+
+{
+    "documento": 1111111111,
+    "nombre": "Juan",
+    "apellido": "Hernandez",
+    "telefono": "32222222222",
+    "correo": "juan@g.com"
+}
+
+### Cuidado con la coma al final del json
+
+PUT http://localhost:9090/empleado/2
+Content-Type: application/json
+
+{
+    "id": 2,
+    "documento": 1111111111,
+    "nombre": "Juan Mauricio",
+    "apellido": "Perez",
+    "telefono": "3333333333",
+    "correo": "juanM@g.com"
+}
+
+###
+
+DELETE http://localhost:9090/empleado/2

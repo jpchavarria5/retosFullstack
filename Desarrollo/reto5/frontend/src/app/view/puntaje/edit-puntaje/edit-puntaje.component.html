@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <form>
+      <h1>Editar Puntaje</h1>
+      <div>
+        <label for="empleado">Empleado:</label>
+        <select id="premio" name="premio" [(ngModel)]="puntaje.idEmpleado" required>
+          <option *ngFor="let e of empleado" [value]="e.id">
+            {{ e.nombre +' '+ e.apellido }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label for="premio">Premio:</label>
+        <select id="premio" name="premio" [(ngModel)]="puntaje.idPremio" required>
+          <option *ngFor="let p of premio" [value]="p.idPremio">
+            {{ p.nombrePremio }}
+          </option>
+        </select>
+      </div>
+      <label for="apellido">Puntos:</label>
+      <input type="text" id="apellido" name="apellido" [(ngModel)]="puntaje.puntosObtenidos" required>
+      <div>
+        <label for="telefono">Fecha:</label>
+        <input type="date" id="telefono" name="telefono" [(ngModel)]="puntaje.fecha">
+      </div>
+      <button (click)="editPuntaje()" type="submit">Actualizar</button><br><br>
+      <button (click)="back()" type="submit">Atras</button>
+    </form>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+//este rest es para que reconozca esete archivo como un archivo de solicitudes
+
+
+GET http://localhost:9090/puntajes
+
+###
+
+POST http://localhost:9090/puntajes/
+Content-Type: application/json
+
+{
+    "idEmpleado": 3,
+    "idPremio": 3,
+    "puntosObtenidos": 1000,
+    "fecha": "12-12-2022"
+}
+
+### Cuidado con la coma al final del json
+
+PUT http://localhost:9090/puntajes/2
+Content-Type: application/json
+
+{
+    "idPuntaje": 2,
+    "idEmpleado": 3,
+    "idPremio": 2,
+    "puntosObtenidos": 3000,
+    "fecha": "12-12-2021"
+}
+
+###
+
+DELETE http://localhost:9090/puntajes/5

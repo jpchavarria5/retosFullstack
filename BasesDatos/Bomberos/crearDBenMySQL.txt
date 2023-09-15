@@ -1,0 +1,10 @@
+-------------CREAR DB EN MYSQL-------------
+1. Ejecuta el xampp.
+2. Ejecuta los modulos Apache y MySQL.
+3. En acciones, seleciona Admin en el modulo de MySQL.
+4. En la parte superior, hay un menu de opciones. Debes seleccionar el que dice SQL.
+5. En el debes escribir 'create database nombre_de_la_base_de_datos' y se creara una db.
+
+-------------ELIMINAR DB EN MYSQL-------------
+Para eliminar una base de datos, solo debes segui los parso de 'CREAR DB EN MYSQL' hasta el punto 4. 
+Despues deberas escribir lo siguiente 'drop database nombre_de_la_base_de_datos' y se eliminara de phpmyadmin.

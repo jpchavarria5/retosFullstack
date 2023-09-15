@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empleados</title>
+</head>
+
+<body>
+  
+  <div class="container">
+    <h1>Lista de Premios</h1>
+    <button (click)="newPremio()" >Crear</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Premio</th>
+          <th>Descripción</th>
+          <th>Valor</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let premio of premios">
+          <td>{{ premio.nombrePremio }}</td>
+          <td>{{ premio.descripcion }}</td>
+          <td>{{ premio.valor }}</td>
+          <td>
+            <button (click)="editPremio(premio.idPremio)" >Editar</button>
+            <button (click)="deletePremio(premio.idPremio)" >Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
